@@ -22,6 +22,7 @@
 ;;   Camilo QS
 ;;   Jonathan Schmeling
 ;;   Kawin Nikomborirak
+;;   Ryan Wilson
 
 ;; This program is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License
@@ -375,7 +376,8 @@ environment value otherwise the `android-mode-sdk-dir' variable."
           (buffer-read-only nil)
           (pos 0)
           (output (concat android-logcat-pending-output
-                          (replace-regexp-in-string "" "" output))))
+                          (replace-regexp-in-string "
+" "" output))))
       (save-excursion
         (while (string-match "\n" output pos)
           (let ((line (substring output pos (match-beginning 0))))
